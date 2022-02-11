@@ -1,0 +1,38 @@
+.pagegamehistory
+{
+	padding-top:25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+	min-height:70vh;
+}
+.gamestatisticsbox
+{
+	text-align:center;
+	background: #cfebff;
+    padding: 15px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 0 10px #efefef;
+	box-shadow: 0 0 10px #efefef;
+	margin-bottom:30px;
+	border:3px solid #1976d2;
+}
+.tablegamehistory .tableleaderboardrow:nth-child(odd)
+{
+	background:#efefef;
+}
+.tablegamehistory .tableleaderboardrow:hover
+{
+	background:#cfebff;
+}
+.tablegamehistory .tableleaderboardrow div
+{
+	padding: 6px 10px;
+}
+.tablegamehistoryhead div
+{
+	padding: 3px 10px;
+}
