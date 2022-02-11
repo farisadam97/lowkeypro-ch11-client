@@ -1,5 +1,7 @@
 import '../styles/globals.css'
 import Head from 'next/head'
+import { Provider } from 'react-redux'
+import { store } from '../redux'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -26,7 +28,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
-      <Component {...pageProps} />
+	  <Provider store={store}>
+        <Component {...pageProps} />
+	  </Provider>
     </>
   
   )
