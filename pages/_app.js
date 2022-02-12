@@ -4,6 +4,8 @@ import { Provider } from 'react-redux'
 import { store } from '../redux'
 import '../styles/RPSGame.css'
 import Head from 'next/head'
+import { Provider } from 'react-redux'
+import { store } from '../redux'
 
 function MyApp({ Component, pageProps }) {
   return (
