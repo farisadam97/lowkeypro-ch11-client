@@ -1,4 +1,8 @@
 import '../styles/globals.css'
+// import '../styles/Gamecontainer.css'
+import { Provider } from 'react-redux'
+import { store } from '../redux'
+import '../styles/RPSGame.css'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
 import { store } from '../redux'
@@ -27,10 +31,15 @@ function MyApp({ Component, pageProps }) {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff"></meta>
+        {/* <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        /> */}
       </Head>
-	  <Provider store={store}>
+      <Provider store={store}>
         <Component {...pageProps} />
-	  </Provider>
+      </Provider>
     </>
   
   )
