@@ -55,8 +55,6 @@ const ResponsiveAppBar = () => {
               src={logoItem} alt="" 
               width="30" 
               height="56"
-              style={{backgroundColor: "red"}}
-              
             />
 			</a>
           </ImageListItem>
@@ -118,7 +116,6 @@ const ResponsiveAppBar = () => {
               src={logoTextKanan} alt="" 
               width="110" 
               height="76"
-              
             />
           </ImageListItem>
 
