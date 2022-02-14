@@ -145,14 +145,14 @@ const RPSGame = () => {
 						</Typography>
 						<Round data={rpsGame}/>
 						<Grid container direction="row" justifyContent="center">
-							{statusGame.rpsStatusgame != "" ? (
+							{statusGame.rpsGame != "" ? (
 									<Alert severity="success">
 										{statusGame.rpsStatusgame}
 									</Alert>
 								) :
 								(
 									<Alert severity="info">
-										Game belum pernah dimainkan!
+										{statusGame.rpsStatusgame}
 									</Alert>
 								)
 							}
