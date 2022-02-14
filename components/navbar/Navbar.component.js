@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 // import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
-import { Link } from 'react-router-dom';
 import {ButtonNavbar} from './Button.component';
 import ImageListItem from '@mui/material/ImageListItem';
 // /images/logo/lowkeypro-text-kanan.png
@@ -51,13 +50,13 @@ const ResponsiveAppBar = () => {
           <ImageListItem 
           sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }} 
           >
-             <Image
+            <a href="/">
+			<Image
               src={logoItem} alt="" 
               width="30" 
               height="56"
-              style={{backgroundColor: "red"}}
-              
             />
+			</a>
           </ImageListItem>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -95,12 +94,11 @@ const ResponsiveAppBar = () => {
                   // style={{  color: 'black' }}
                   >
 
-                    {/* <Link
+                    <a href={page.route}
                     style={{  textDecoration: 'none', color: 'black' }}
-                    to={page.route}
-                    > */}
+                    >
                       {page.name}
-                    {/* </Link> */}
+                    </a>
                   </Typography>
                 </MenuItem>
               ))}
@@ -118,7 +116,6 @@ const ResponsiveAppBar = () => {
               src={logoTextKanan} alt="" 
               width="110" 
               height="76"
-              
             />
           </ImageListItem>
 
@@ -129,12 +126,11 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
-                 {/* <Link
+                <a href={page.route}
                     style={{  textDecoration: 'none', color: 'black' }}
-                    to={page.route}
-                  > */}
+                >
                 {page.name}
-                {/* </Link> */}
+                </a>
               </Button>
             ))}
             
