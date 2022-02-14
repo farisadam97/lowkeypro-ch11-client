@@ -1,0 +1,44 @@
+.pagetopscore
+{
+	padding-top:25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+	min-height:70vh;
+}
+.tableleaderboard .tableleaderboardrow:nth-child(odd)
+{
+	background:#efefef;
+}
+.tableleaderboard .tableleaderboardrow:nth-child(1)
+{
+	background:rgb(252, 200, 97);
+}
+.tableleaderboard .tableleaderboardrow:nth-child(1) div:nth-child(1)
+{
+	background-image: url('/images/trophy.png');
+	background-size:auto 20px;
+	background-position:left 30px center;
+	background-repeat:no-repeat;
+}
+.tableleaderboard .tableleaderboardrow:nth-child(2)
+{
+	background:rgb(229, 229, 229);
+}
+.tableleaderboard .tableleaderboardrow:nth-child(3)
+{
+	background:rgb(220, 179, 134);
+}
+.tableleaderboard .tableleaderboardrow:hover
+{
+	background:#cfebff;
+}
+.tableleaderboardhead div
+{
+	padding: 3px 10px;
+}
+.tableleaderboard .tableleaderboardrow div
+{
+	padding: 6px 10px;
+}

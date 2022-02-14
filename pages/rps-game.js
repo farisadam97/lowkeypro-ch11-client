@@ -28,17 +28,18 @@ import {postScoreAxios} from '../services/game.score.service';
 
 import { useDispatch, useSelector } from "react-redux";
 import { addScoreUser, resetGame } from '../redux/actions/rpsgame.action';
+
+import { incrementCounterAction } from '../redux/actions/counters';
 import { addStatusGame } from '../redux/actions/statusgame.action';
+
 
 
 const RPSGame = () => {
 	const dispatch = useDispatch();
 
 	const rpsGame = useSelector(store => store.rpsGame);
-
-	const statusGame = useSelector(store => store.statusGame);
-
-	console.log(statusGame);
+  const counters = useSelector(state => state.counters);
+  const statusGame = useSelector(store => store.statusGame);
 	
 	const reset = () => {
 		dispatch(
@@ -85,6 +86,11 @@ const RPSGame = () => {
 					)
 					resulttoupdate = "WIN";
 					scoretoupdate = 1;
+				
+					dispatch(
+						incrementCounterAction()
+					)
+					localStorage.setItem('total_score', counters.value+1);
 				}
 				else
 				{

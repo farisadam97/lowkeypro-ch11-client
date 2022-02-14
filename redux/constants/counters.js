@@ -1,0 +1,1 @@
+export const INCREMENT_COUNTER = 'counter/INCREMENT_COUNTER'
