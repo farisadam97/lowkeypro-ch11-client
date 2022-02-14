@@ -17,7 +17,7 @@ import Image from 'next/image';
 
 // Component Navbar
 import ResponsiveAppBar from '../components/navbar/Navbar.component';
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Alert, Grid } from '@mui/material';
 
 import imgbatu from '../public/images/batu.png';
 import imgkertas from '../public/images/kertas.png';
@@ -28,14 +28,18 @@ import {postScoreAxios} from '../services/game.score.service';
 
 import { useDispatch, useSelector } from "react-redux";
 import { addScoreUser, resetGame } from '../redux/actions/rpsgame.action';
+
 import { incrementCounterAction } from '../redux/actions/counters';
+import { addStatusGame } from '../redux/actions/statusgame.action';
+
 
 
 const RPSGame = () => {
 	const dispatch = useDispatch();
 
 	const rpsGame = useSelector(store => store.rpsGame);
-    const counters = useSelector(state => state.counters);
+  const counters = useSelector(state => state.counters);
+  const statusGame = useSelector(store => store.statusGame);
 	
 	const reset = () => {
 		dispatch(
@@ -107,6 +111,15 @@ const RPSGame = () => {
 					pcselection: pcselection
 				})
 			)
+			
+			if(statusGame.rpsGame === ""){
+				dispatch(
+					addStatusGame({
+						rpsGame: "true",
+						rpsStatusgame: "Game pernah dimainkan sebelumnya"
+					})
+				)
+			}
 
 			const currentuserid = localStorage.getItem('id');
 			var currentyear = new Date().getFullYear();
@@ -131,6 +144,19 @@ const RPSGame = () => {
 							Rock Paper Scissors
 						</Typography>
 						<Round data={rpsGame}/>
+						<Grid container direction="row" justifyContent="center">
+							{statusGame.rpsStatusgame != "" ? (
+									<Alert severity="success">
+										{statusGame.rpsStatusgame}
+									</Alert>
+								) :
+								(
+									<Alert severity="info">
+										Game belum pernah dimainkan!
+									</Alert>
+								)
+							}
+						</Grid>	
 						<Gamecontainer>
 							<Gamesection>
 								<Info>
