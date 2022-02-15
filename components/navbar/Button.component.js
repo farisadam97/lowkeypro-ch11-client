@@ -3,11 +3,16 @@ import Button from '@mui/material/Button';
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { incrementCounterAction } from '../../redux/actions/counters'
+import Link from 'next/link';
 
 export const ButtonNavbar = () =>{
 	
 	const dispatch = useDispatch()
-    const counters = useSelector(state => state.counters)
+    const counters = useSelector(state => state.counters);
+
+    const navbarReducer = useSelector(store => store.navbar);
+
+    console.log(navbarReducer);
 
 	/* testing redux add score
     const handleChange = (e) => {
@@ -29,38 +34,55 @@ export const ButtonNavbar = () =>{
 	var name = ""
 	
 	if (typeof window !== 'undefined') {
-		isUserLogin = localStorage.getItem('status');
+		isUserLogin = navbarReducer.status;
+    // isUserLogin = localStorage.getItem('status');
 		name = localStorage.getItem('name');
 	}
-	
+    console.log(isUserLogin)
     return (
         <>
             {
               isUserLogin === "Login Success" ? 
               (
-                <>
-					{/* testing redux add score
-						<a onClick={handleChange}>Testing redux add score</a>
-					*/}
-				
-					<a href="/profile" style={{ fontFamily: 'Roboto,Helvetica,Arial,sans-serif', fontSize: '0.875rem', lineHeight: '1.75', textTransform: 'uppercase', textDecoration: 'none', padding: '4px 15px' }}><span style={{ padding: '2px 6px'}}>{name}</span> <span style={{ backgroundColor: '#55daab', color: 'white', borderRadius: '3px', padding: '2px 6px'}}>Score: {counters.value}</span></a> 
-					<a href="/home-page" style={{ fontFamily: 'Roboto,Helvetica,Arial,sans-serif', fontSize: '0.875rem', lineHeight: '1.75', border: '1px solid rgba(25, 118, 210, 0.5)', borderRadius: '90px', textTransform: 'uppercase', textDecoration: 'none', padding: '4px 15px' }}>Dashboard</a> 
-					<a href="/profile" style={{ fontFamily: 'Roboto,Helvetica,Arial,sans-serif', fontSize: '0.875rem', lineHeight: '1.75', border: '1px solid rgba(25, 118, 210, 0.5)', borderRadius: '90px', textTransform: 'uppercase', textDecoration: 'none', padding: '4px 15px' }}>My Profile</a> 
-					<a href="/login" onClick={onLogoutClick} style={{ fontFamily: 'Roboto,Helvetica,Arial,sans-serif', lineHeight: '1.75', fontSize: '0.875rem', border: '1px solid rgba(46, 125, 50, 0.5)', borderRadius: '90px', textTransform: 'uppercase', textDecoration: 'none', padding: '4px 15px' }}>Logout</a>
-                </>
+                <div>
+                    {/* testing redux add score
+                      <a onClick={handleChange}>Testing redux add score</a>
+                    */}
+
+                <a href="/profile" style={{ fontFamily: 'Roboto,Helvetica,Arial,sans-serif', fontSize: '0.875rem', lineHeight: '1.75', textTransform: 'uppercase', textDecoration: 'none', padding: '4px 15px' }}><span style={{ padding: '2px 6px'}}>{name}</span> <span style={{ backgroundColor: '#55daab', color: 'white', borderRadius: '3px', padding: '2px 6px'}}>Score: {counters.value}</span></a> 
+
+                <Button variant="outlined" style={{ borderRadius: "90px" }}>
+                  <Link href="/home-page" style={{ textDecoration: 'none', color: 'black'}}>
+                   <a> Dashboard</a>
+                  </Link>
+                </Button>
+    
+                <Button variant="outlined" style={{ borderRadius: "90px" }}>
+                  <Link href="/profile" style={{ textDecoration: 'none', color: 'black'}}>
+                   <a> My Profile</a>
+                  </Link>
+                </Button>
+                
+                <Button variant="outlined" color="error" style={{ borderRadius: "90px" }}>
+                  <Link href="/login" onClick={onLogoutClick} style={{ textDecoration: 'none', color: 'black'}}>
+                    <a onClick={onLogoutClick}>Logout</a>
+                  </Link>
+                </Button>
+					
+              </div>
               ) : (
-                <>
-                  <Button variant="outlined" style={{ borderRadius: "90px" }}> 
-					<a href="/register" style={{ textDecoration: 'none', color: 'black'}}>
-                      Sign Up Free
-					</a>
+                <div>
+                  <Button variant="outlined" style={{ borderRadius: "90px" }}>
+                    <Link href="/register" style={{ textDecoration: 'none', color: 'black'}}>
+                      <a>Sign Up Free</a>
+                    </Link>
                   </Button>
                   <Button variant="outlined" color="success" style={{ borderRadius: "90px" }}>
-                    <a href="/login" style={{ textDecoration: 'none', color: 'black' }}>
-                      Login
-                    </a>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} href="/login">
+                      <a>Login</a>
+                    </Link>
                   </Button>
-                </>
+                </div>
               ) 
             }
         </>

@@ -17,8 +17,10 @@ import ImageListItem from '@mui/material/ImageListItem';
 // /images/logo/lowkeypro-text-kanan.png
 import logoItem from '../../public/images/logo/lowkeypro-logo-tanpa-text.png';
 import logoTextKanan from '../../public/images/logo/lowkeypro-text-kanan.png';
+import Link from 'next/link';
 
 import Image from 'next/image';
+import { height } from '@mui/system';
 
 const pages = [
   {name: "Home", route: "/"}, 
@@ -40,7 +42,8 @@ const ResponsiveAppBar = () => {
   const navbarStyle = {
     background: "white",
     color: "black",
-    opacity: 0.8
+    opacity: 0.8,
+    width: "100%"
   }
  
   return (
@@ -50,13 +53,15 @@ const ResponsiveAppBar = () => {
           <ImageListItem 
           sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }} 
           >
-            <a href="/">
-			<Image
+          <Link href="/">
+			      <a>
+              <Image
               src={logoItem} alt="" 
               width="30" 
               height="56"
-            />
-			</a>
+              />
+            </a>
+          </Link>
           </ImageListItem>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
