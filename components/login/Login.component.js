@@ -9,7 +9,12 @@ import {postLoginAxios} from '../../services/auth.service';
 import { useForm, Controller } from "react-hook-form";
 import { Input } from "@material-ui/core";
 
+import { useDispatch } from "react-redux";
+import { postLoginAction } from "../../redux/actions/navbar.action";
+
 export default function FormLogin(){
+    const dispatch = useDispatch();
+
     const { handleSubmit, formState: { errors }, control } = useForm({
         defaultValues: {
           username: '',
@@ -17,9 +22,10 @@ export default function FormLogin(){
         }
       });
     const onSubmit = data => {
-        console.log(data);
         const dataJSON = JSON.stringify(data);
-        postLoginAxios(dataJSON);
+        dispatch(
+          postLoginAction(dataJSON)
+        );
     };
 
     const gridFormStyle = {
@@ -35,7 +41,7 @@ export default function FormLogin(){
     };
     
     return(
-    <Card sx={{ minWidth: 275 }} >
+    <Card sx={{ minWidth: 200 }} >
       <CardContent style={gridFormStyle}>
         <Container maxWidth="sm">
           <form onSubmit={handleSubmit(onSubmit)}>
