@@ -2,7 +2,7 @@ import { ADD_STATUS } from "../constants/statusgame.constatn"
 
 export const initialState = {
     rpsGame: "",
-    rpsStatusgame: ""        
+    rpsStatusgame: "Game belum pernah dimainkan!"        
 }
 
 

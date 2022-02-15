@@ -38,8 +38,8 @@ const RPSGame = () => {
 	const dispatch = useDispatch();
 
 	const rpsGame = useSelector(store => store.rpsGame);
-  const counters = useSelector(state => state.counters);
-  const statusGame = useSelector(store => store.statusGame);
+	const counters = useSelector(state => state.counters);
+	const statusGame = useSelector(store => store.statusGame);
 	
 	const reset = () => {
 		dispatch(
@@ -145,14 +145,14 @@ const RPSGame = () => {
 						</Typography>
 						<Round data={rpsGame}/>
 						<Grid container direction="row" justifyContent="center">
-							{statusGame.rpsStatusgame != "" ? (
+							{statusGame.rpsGame != "" ? (
 									<Alert severity="success">
 										{statusGame.rpsStatusgame}
 									</Alert>
 								) :
 								(
 									<Alert severity="info">
-										Game belum pernah dimainkan!
+										{statusGame.rpsStatusgame}
 									</Alert>
 								)
 							}
