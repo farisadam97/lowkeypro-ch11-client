@@ -18,26 +18,109 @@ const GameCard = (props) => {
     const statusGame = useSelector(store => store.statusGame);
     const counters = useSelector(state => state.counters);
 	
-	const handlePlayButtonClicked = (e) => {
-		dispatch(
-			addStatusGame({
-				rpsGame: "true",
-				rpsStatusgame: "Game pernah dimainkan sebelumnya"
-			})
-		)
+	const handlePlayButtonClicked = (nameGame) => (e) => {
+        // console.log("lala")
+		console.log(nameGame)
+
+        switch (nameGame) {
+            case "rps":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            rpsStatusgame: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "female_assasin":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            female_assasin: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "iamfastest":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            iamfastest: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "zombieoutbreak":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            zombieoutbreak: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "supermario":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            supermario: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "alienkiller":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            alienkiller: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "warships":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            warships: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "dragonsmagic":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            dragonsmagic: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "dragonsmagic":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            dragonsmagic: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            case "thesims":
+                return(
+                    dispatch(
+                        addStatusGame({
+                            thesims: "Game pernah dimainkan sebelumnya"
+                        })
+                    )
+                )
+            default:
+                alert("Uups, data tidak ditemukan!")
+                break;
+        }
+        
     }
 	
     return(
         <Grid item xs={12} md={6} lg={4}>
             <Card sx={{ height:'100%', borderRadius:4 }}>
-                {statusGame.rpsGame != "" ? (
+                {props.gameInfo != "" ? (
                         <Alert severity="success">
-                            {statusGame.rpsStatusgame}
+                            {props.gameInfo}
                         </Alert>
 					) :
 					(
 						<Alert severity="info">
-							{statusGame.rpsStatusgame}
+							Game belum pernah dimainkan!
 						</Alert>
 					)
 				}
@@ -69,7 +152,7 @@ const GameCard = (props) => {
                 <CardActions sx={{px:3}}>
                     <Button variant="contained" sx={{width:"100%" , my:2}}>
                         <Link style={{ textDecoration: 'none', color: '#fff' }} href={props.link}>
-                           <a target="_blank" onClick={handlePlayButtonClicked}>Play Now!</a>
+                           <a onClick={handlePlayButtonClicked(props.nameGame)}>Play Now!</a>
                         </Link>
                     </Button>
                 </CardActions>
