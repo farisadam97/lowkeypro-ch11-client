@@ -2,7 +2,15 @@ import { ADD_STATUS } from "../constants/statusgame.constatn"
 
 export const initialState = {
     rpsGame: "",
-    rpsStatusgame: "Game belum pernah dimainkan!"        
+    rpsStatusgame: "",
+    female_assasin: "",
+    iamfastest: "",
+    zombieoutbreak: "",
+    supermario: "", 
+    alienkiller: "",
+    warships: "",
+    dragonsmagic: "",
+    thesims: "", 
 }
 
 
