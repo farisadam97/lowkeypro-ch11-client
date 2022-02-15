@@ -38,8 +38,8 @@ const RPSGame = () => {
 	const dispatch = useDispatch();
 
 	const rpsGame = useSelector(store => store.rpsGame);
-  const counters = useSelector(state => state.counters);
-  const statusGame = useSelector(store => store.statusGame);
+	const counters = useSelector(state => state.counters);
+	const statusGame = useSelector(store => store.statusGame);
 	
 	const reset = () => {
 		dispatch(

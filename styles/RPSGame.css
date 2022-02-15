@@ -221,28 +221,37 @@ img.selected {
     font-size: 14px;
   }
   #vs {
-    font-size: 70px;
-    line-height: 100px;
+    font-size: 30px;
+    line-height: 50px;
   }
   .result {
-    font-size: 16px;
-    line-height: 22px;
-    width: 120px;
-    padding: 15px;
+    font-size: 10px;
+    line-height: 10px;
+    width: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    padding-right: 20px;
   }
 
   .resultlost {
-    font-size: 20px;
-    line-height: 20px;
-    width: 120px;
-    padding: 15px;
+    font-size: 10px;
+    line-height: 10px;
+    width: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 17px;
+    padding-right: 20px;
   }
 
   .resultdraw {
-    font-size: 20px;
-    line-height: 20px;
-    width: 120px;
-    padding: 15px;
+    font-size: 10px;
+    line-height: 10px;
+    width: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 13px;
+    padding-right: 20px;
   }
 
   .result.resultdraw {
