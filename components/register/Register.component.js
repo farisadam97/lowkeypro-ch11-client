@@ -1,67 +1,27 @@
-import React, {useState} from "react";
-import Axios from 'axios';
+import React from "react";
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {Alert, Snackbar} from '@mui/material';
-// import {postLoginAxios} from '../../services/auth.service';
+import { postRegisterAxios } from "../../services/auth.service";
 // import { Link } from 'react-router-dom';
 import { useForm, Controller } from "react-hook-form";
 import { Input } from "@material-ui/core";
 
-import {baseURL} from '../../services/config.service';
-
-// import { useDispatch } from "react-redux";
-// import { postLoginAction } from "../../redux/actions/navbar.action";
-
-export default function FormLogin(){
-  const [alert, setAlert] = useState(false);
-  const [alertContent, setAlertContent] = useState('');
-    const dispatch = useDispatch();
-
+export default function FormRegister(){
     const { handleSubmit, formState: { errors }, control } = useForm({
         defaultValues: {
           username: '',
-          password: ''
+          password: '',
+          name: '',
+          email: ''
         }
       });
     const onSubmit = data => {
+        console.log(data);
         const dataJSON = JSON.stringify(data);
-        // dispatch(
-        //   postLoginAction(dataJSON)
-        // );
-
-        Axios({
-          method: 'post',
-          url: `${baseURL}/login`,
-          data: dataJSON,
-          headers: {"Content-Type": "application/json"}
-        })
-        .then(function (response) {
-          console.log(response.data);
-          localStorage.setItem('id', response.data.id);
-          localStorage.setItem('bio', response.data.bio);
-          localStorage.setItem('city', response.data.city);
-          localStorage.setItem('email', response.data.email);
-          localStorage.setItem('name', response.data.name);
-          localStorage.setItem('token', response.data.token);
-          localStorage.setItem('total_score', response.data.total_score);
-          localStorage.setItem('status', "Login Success");
-          window.location = "/home-page/";
-        })
-        .catch(function (error) {
-          setAlertContent(error.response.data.message);
-          setAlert(true);
-          // alert(error.response.data.message);
-        })
-    };
-
-    const handleClose = () => {
-      
-      setAlert(false);
-      setAlertContent('');
+        postRegisterAxios(dataJSON);
     };
 
     const gridFormStyle = {
@@ -77,22 +37,36 @@ export default function FormLogin(){
     };
     
     return(
-    <Card sx={{ minWidth: 200 }} >
-      {alert ? 
-          <Snackbar 
-          open={true}
-          anchorOrigin={{vertical: 'top', horizontal: 'center' }}
-          >
-            <Alert severity='error' onClose={handleClose}>
-              {alertContent}
-            </Alert>
-          </Snackbar> 
-        : 
-          <></> 
-        }
+    <Card sx={{ minWidth: 275 }} >
       <CardContent style={gridFormStyle}>
         <Container maxWidth="sm">
           <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="label">Full Name</label>
+            <Controller
+            name="name"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => 
+              <Input {...field} type="text" style={textFieldStyle} placeholder="Full Name" />
+            }
+            />
+            {
+              errors.name?.type === 'required' && <Typography sx={{color:"red"}} component="div" gutterBottom>Required</Typography>
+            }
+            <br/>
+            <label htmlFor="label">Email</label>
+            <Controller
+            name="email"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => 
+              <Input {...field} type="text" style={textFieldStyle} placeholder="Email" />
+            }
+            />
+            {
+              errors.email?.type === 'required' && <Typography sx={{color:"red"}} component="div" gutterBottom>Required</Typography>
+            }
+            <br/>
             <label htmlFor="label">Username</label>
             <Controller
             name="username"
@@ -119,12 +93,13 @@ export default function FormLogin(){
               errors.password?.type === 'required' && <Typography sx={{color:"red"}} component="div" gutterBottom>Required</Typography>
             }
             <br/>
+            
             <Button type="submit" variant="contained" sx={{width:"100%" , my:2}}>Submit</Button>
-            <p style={{textAlign: "right"}}>
-              {/* <Link style={{ color: 'black' }} to="/register"> */}
+            {/* <p style={{textAlign: "right"}}>
+              <Link style={{ color: 'black' }} to="/register">
                 Register Now!
-              {/* </Link> */}
-            </p>
+              </Link>
+            </p> */}
           </form>
         </Container>
       </CardContent>

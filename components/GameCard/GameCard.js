@@ -19,18 +19,16 @@ const GameCard = (props) => {
     const counters = useSelector(state => state.counters);
 	
 	const handlePlayButtonClicked = (nameGame) => (e) => {
-        // console.log("lala")
-		console.log(nameGame)
-
         switch (nameGame) {
             case "rps":
-                return(
-                    dispatch(
-                        addStatusGame({
-                            rpsStatusgame: "Game pernah dimainkan sebelumnya"
-                        })
-                    )
-                )
+                // return(
+                //     dispatch(
+                //         addStatusGame({
+                //             rpsStatusgame: "Game pernah dimainkan sebelumnya"
+                //         })
+                //     )
+                // )
+                break;
             case "female_assasin":
                 return(
                     dispatch(
