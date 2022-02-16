@@ -1,18 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
+import Axios from 'axios';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {postLoginAxios} from '../../services/auth.service';
+import {Alert, Snackbar} from '@mui/material';
+// import {postLoginAxios} from '../../services/auth.service';
 // import { Link } from 'react-router-dom';
 import { useForm, Controller } from "react-hook-form";
 import { Input } from "@material-ui/core";
 
-import { useDispatch } from "react-redux";
-import { postLoginAction } from "../../redux/actions/navbar.action";
+import {baseURL} from '../../services/config.service';
+
+// import { useDispatch } from "react-redux";
+// import { postLoginAction } from "../../redux/actions/navbar.action";
 
 export default function FormLogin(){
+  const [alert, setAlert] = useState(false);
+  const [alertContent, setAlertContent] = useState('');
     const dispatch = useDispatch();
 
     const { handleSubmit, formState: { errors }, control } = useForm({
@@ -23,9 +29,39 @@ export default function FormLogin(){
       });
     const onSubmit = data => {
         const dataJSON = JSON.stringify(data);
-        dispatch(
-          postLoginAction(dataJSON)
-        );
+        // dispatch(
+        //   postLoginAction(dataJSON)
+        // );
+
+        Axios({
+          method: 'post',
+          url: `${baseURL}/login`,
+          data: dataJSON,
+          headers: {"Content-Type": "application/json"}
+        })
+        .then(function (response) {
+          console.log(response.data);
+          localStorage.setItem('id', response.data.id);
+          localStorage.setItem('bio', response.data.bio);
+          localStorage.setItem('city', response.data.city);
+          localStorage.setItem('email', response.data.email);
+          localStorage.setItem('name', response.data.name);
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('total_score', response.data.total_score);
+          localStorage.setItem('status', "Login Success");
+          window.location = "/home-page/";
+        })
+        .catch(function (error) {
+          setAlertContent(error.response.data.message);
+          setAlert(true);
+          // alert(error.response.data.message);
+        })
+    };
+
+    const handleClose = () => {
+      
+      setAlert(false);
+      setAlertContent('');
     };
 
     const gridFormStyle = {
@@ -42,6 +78,18 @@ export default function FormLogin(){
     
     return(
     <Card sx={{ minWidth: 200 }} >
+      {alert ? 
+          <Snackbar 
+          open={true}
+          anchorOrigin={{vertical: 'top', horizontal: 'center' }}
+          >
+            <Alert severity='error' onClose={handleClose}>
+              {alertContent}
+            </Alert>
+          </Snackbar> 
+        : 
+          <></> 
+        }
       <CardContent style={gridFormStyle}>
         <Container maxWidth="sm">
           <form onSubmit={handleSubmit(onSubmit)}>
