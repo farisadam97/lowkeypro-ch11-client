@@ -1,9 +1,11 @@
 import Container from '@mui/material/Container';
 import Navbar from '../../components/navbar/Navbar.component';
-import Head from 'next/head';
+// import Head from 'next/head';
 import styles from '../../styles/homepage.module.css';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+
+import Link from 'next/link';
 
 import React, { useState } from 'react';
 
@@ -42,9 +44,9 @@ export default function HomePage() {
 	}
   return (
 	<>
-		<head>
+		{/* <head>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-		</head>
+		</head> */}
 		<Navbar />
 		
 		<div className={styles.pagehome}>
@@ -101,7 +103,12 @@ export default function HomePage() {
 										Visit the page to view your profile and edit the information.
 									</Typography>
 									<br /><br />
-									<a href="/profile" style={{ textDecoration: 'none' }}><Button variant="contained" style={{padding:'10px 20px'}}>Let's Go</Button></a>
+									<Button variant="contained" style={{padding:'10px 20px'}}>
+										<Link href="/profile">
+											<a style={{ textDecoration: 'none' }}>Lets Go</a>
+										</Link>
+									</Button>
+									
 								</div>
 							)}
 							{isOpened2 && (
@@ -128,7 +135,11 @@ export default function HomePage() {
 										Come enjoy the finest gaming experience on a website designed with you in mind. <br /><br />The fun starts here!
 									</Typography>
 									<br /><br />
-									<a href="/game-list" style={{ textDecoration: 'none' }}><Button variant="contained" style={{padding:'10px 20px'}}>Let's Go</Button></a>
+									<Button variant="contained" style={{padding:'10px 20px'}}>
+										<Link href="/game-list">
+											<a style={{ textDecoration: 'none' }}>Lets Go</a>
+										</Link>
+									</Button>
 								</div>
 							)}
 							{isOpened3 && (
@@ -155,7 +166,11 @@ export default function HomePage() {
 										View the history of the games you have played.
 									</Typography>
 									<br /><br />
-									<a href="/game-history" style={{ textDecoration: 'none' }}><Button variant="contained" style={{padding:'10px 20px'}}>Let's Go</Button></a>
+									<Button variant="contained" style={{padding:'10px 20px'}}>
+										<Link href="/game-history">
+											<a style={{ textDecoration: 'none' }}>Lets Go</a>
+										</Link>
+									</Button>
 								</div>
 							)}
 							{isOpened4 && (
@@ -182,7 +197,11 @@ export default function HomePage() {
 										Check out who got the highest score and the rankings.
 									</Typography>
 									<br /><br />
-									<a href="/top-score" style={{ textDecoration: 'none' }}><Button variant="contained" style={{padding:'10px 20px'}}>Let's Go</Button></a>
+									<Button variant="contained" style={{padding:'10px 20px'}}>
+										<Link href="/top-score">
+											<a style={{ textDecoration: 'none' }}>Lets Go</a>
+										</Link>
+									</Button>
 								</div>
 							)}
 						</div>
