@@ -13,6 +13,7 @@ import imgtestimonial2 from '../public/images/Jada-Griffin.jpg';
 import imgtestimonial3 from '../public/images/Aaron-Williams.jpg';
 import imgtwitter from '../public/images/twitter.svg';
 import imgnewsletter from '../public/images/newsletter.jpg';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -53,24 +54,30 @@ export default function Home() {
 					}}
 				>Experience new traditional game play</Typography>
 				<div className={styles.sectionhomebutton}>
-					<a href="/game-list" style={{ textDecoration: 'none' }}><Button variant="contained" style={{padding:'20px 50px'}}>Play Now</Button></a>
+					<Button variant="contained" style={{padding:'20px 50px'}}>
+						<Link href="/game-list">
+							<a style={{ textDecoration: 'none' }}>Play Now</a>
+						</Link>
+					</Button>
 				</div>
 			</Container>
 		</div>
 		<div className={styles.sectionhomearrow}>
-			<a href="/game-list" style={{ textDecoration: 'none' }}>
-				<Typography color="white" variant="h6"
-					fontSize={{
-						lg: 15,
-						md: 15,
-						sm: 12,
-						xs: 12
-					}}
-				>
-					THE STORY
-				</Typography>
-				<Image src={imgscrolldown} alt="Scroll Down"/>
-			</a>
+				<Link href="/game-list">
+					<a>
+						<Typography color="white" variant="h6"
+							fontSize={{
+								lg: 15,
+								md: 15,
+								sm: 12,
+								xs: 12
+							}}
+						>
+							THE STORY
+						</Typography>
+						<Image src={imgscrolldown} alt="Scroll Down"/>
+					</a>
+				</Link>
 		</div>
 		<div className={styles.sectionfeature}>
 			<Container maxWidth="xl">
@@ -85,7 +92,7 @@ export default function Home() {
 								xs: 15
 							}}
 						>
-							What's so special?
+							Whats so special?
 						</Typography>
 						
 						<Typography color="white" variant="h3"
@@ -214,7 +221,11 @@ export default function Home() {
 						</Typography>
 						
 						<br /> <br />
-						<a href="/top-score" style={{ textDecoration: 'none' }}><Button variant="contained" style={{width:'100%',padding:'10px',maxWidth:'300px'}}>See More</Button></a>
+						<Button variant="contained" style={{width:'100%',padding:'10px',maxWidth:'300px'}}>
+							<Link href="/top-score">
+								<a style={{ textDecoration: 'none' }}>See More</a>
+							</Link>
+						</Button>
 						
 					</div>
 					<div className={styles.mobilepaddingtop50}>
@@ -246,7 +257,11 @@ export default function Home() {
 									</Typography>
 								</div>
 								<div className={styles.cardcol3}>
-									<a href="https://twitter.com/" style={{ textDecoration: 'none' }} target="_blank"><Image src={imgtwitter} alt="Twitter"/></a>
+								<Link href="https://twitter.com/">
+									<a style={{ textDecoration: 'none' }} target="_blank">
+										<Image src={imgtwitter} alt="Twitter"/>
+									</a>
+								</Link>
 								</div>
 								<div style={{clear:"both"}}></div>
 								<Typography paddingTop={2} color="white" 
@@ -299,7 +314,11 @@ export default function Home() {
 									</Typography>
 								</div>
 								<div className={styles.cardcol3}>
-									<a href="https://twitter.com/" style={{ textDecoration: 'none' }} target="_blank"><Image src={imgtwitter} alt="Twitter"/></a>
+								<Link href="https://twitter.com/">
+									<a style={{ textDecoration: 'none' }} target="_blank">
+										<Image src={imgtwitter} alt="Twitter"/>
+									</a>
+								</Link>
 								</div>
 								<div style={{clear:"both"}}></div>
 								<Typography color="white" 
@@ -352,7 +371,11 @@ export default function Home() {
 									</Typography>
 								</div>
 								<div className={styles.cardcol3}>
-									<a href="https://twitter.com/" style={{ textDecoration: 'none' }} target="_blank"><Image src={imgtwitter} alt="Twitter"/></a>
+								<Link href="https://twitter.com/">
+									<a style={{ textDecoration: 'none' }} target="_blank">
+										<Image src={imgtwitter} alt="Twitter"/>
+									</a>
+								</Link>
 								</div>
 								<div style={{clear:"both"}}></div>
 								<Typography color="white" 
