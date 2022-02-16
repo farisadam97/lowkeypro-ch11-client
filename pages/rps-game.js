@@ -35,6 +35,13 @@ import { addStatusGame } from '../redux/actions/statusgame.action';
 
 
 const RPSGame = () => {
+	
+	let dataLogin = ""
+	if(typeof window !== 'undefined'){
+		dataLogin = localStorage.getItem("status");
+	}
+
+	console.log(dataLogin)
 	const dispatch = useDispatch();
 
 	const rpsGame = useSelector(store => store.rpsGame);
@@ -130,6 +137,12 @@ const RPSGame = () => {
     return (
 		<div>
 			<ResponsiveAppBar />
+			{dataLogin === null ? 
+				(
+					(window.location = "/login")
+				):(
+					
+				
 			<div className="pagegame">
 				<Container maxWidth="xl">
 					<div>
@@ -198,6 +211,8 @@ const RPSGame = () => {
 					</div>
 				</Container>
 			</div>
+				)
+			}
 		</div>
 	)
 }
