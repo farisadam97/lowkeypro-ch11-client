@@ -1,0 +1,90 @@
+.pagehome
+{
+	padding-top:25px;
+	background-color:#f4eeea;
+	background-image: url('/images/features.jpg');
+	background-repeat:repeat-x;
+	background-position: center right -200px;
+}
+.homepageboxes div
+{
+    padding: 20px 20px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	text-align:center;
+	-webkit-box-shadow: 0 0 10px #efefef;
+	box-shadow: 0 0 10px #efefef;
+	margin-bottom:30px;
+	border:3px solid #1976d2;
+	transition: transform .2s;
+}
+
+.homepageboxes .fa
+{
+	font-size: 60px;
+	color: #1976d2;
+}
+.homepageboxes div:hover
+{
+	background:#1976d2;
+	transform: scale(1.03);
+}
+.homepageboxes div:hover .fa
+{
+	color:white;
+}
+.homepageboxes div:hover button
+{
+	box-shadow:none;
+}
+.homepageboxes div button:hover
+{
+	background:transparent;
+}
+.homeleft
+{
+	float:left;
+	width:35%;
+	margin-left:39%;
+	margin-right:3%;
+}
+.homeright
+{
+	float:right;
+	width:23%;
+	text-align:right;
+}
+
+.boxcontent
+{
+	background: rgba(0,0,0, 0.7);
+    padding: 50px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 0 10px #efefef;
+	box-shadow: 0 0 10px #efefef;
+	margin-bottom:30px;
+	border:3px solid #1976d2;
+}
+@media screen and (max-width:767px)
+{
+	.homeleft, .homeright
+	{
+		float:none;
+		width:100%;
+		margin-right:0;
+	}
+	.homepageboxes
+	{
+		display:block!important;
+	}
+}
+@media screen and (min-width:768px)
+{
+	.desktopalignright
+	{
+		text-align:right!important;
+	}
+}
