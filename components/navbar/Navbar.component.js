@@ -23,9 +23,10 @@ import Image from 'next/image';
 import { height } from '@mui/system';
 
 const pages = [
-  {name: "Home", route: "/"}, 
-  {name: "Game List", route: "/game-list"}, 
-  {name: "Top Score", route: "/top-score"},
+  {name: "Home", route: "/", target: "_self"}, 
+  {name: "Game List", route: "/game-list", target: "_self"}, 
+  {name: "Top Score", route: "/top-score", target: "_self"}, 
+  {name: "How to Play?", route: "/how-to-play", target: "_blank"},
 ];
 
 const ResponsiveAppBar = () => {
@@ -99,7 +100,7 @@ const ResponsiveAppBar = () => {
                   // style={{  color: 'black' }}
                   >
 
-                    <a href={page.route}
+                    <a href={page.route} target={page.target}
                     style={{  textDecoration: 'none', color: 'black' }}
                     >
                       {page.name}
@@ -131,7 +132,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
-                <a href={page.route}
+                <a href={page.route} target={page.target}
                     style={{  textDecoration: 'none', color: 'black' }}
                 >
                 {page.name}
