@@ -5,17 +5,10 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import imgscrolldown from '../public/images/scrolldown.svg';
-import imgfeature from '../public/images/650x700.png';
-import imgsystemrequirement from '../public/images/650x700.png';
-import imgtestimonial1 from '../public/images/Evan-Lahti.jpg';
-import imgtestimonial2 from '../public/images/Jada-Griffin.jpg';
-import imgtestimonial3 from '../public/images/Aaron-Williams.jpg';
-import imgtwitter from '../public/images/twitter.svg';
-import imgnewsletter from '../public/images/newsletter.jpg';
 import Link from 'next/link';
 
 export default function Home() {
+	
   return (
 	<>
 		
@@ -75,14 +68,16 @@ export default function Home() {
 						>
 							THE STORY
 						</Typography>
-						<Image src={imgscrolldown} alt="Scroll Down"/>
+						<Image src="/images/scrolldown.svg" alt="Scroll Down" width={23} height={12}/>
 					</a>
 				</Link>
 		</div>
 		<div className={styles.sectionfeature}>
 			<Container maxWidth="xl">
 				<div className={styles.mobilefull} style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20 }}>
-					<div><Image src={imgfeature} alt="Feature"/></div>
+					<div>
+						<Image src="/images/650x700.png" alt="Feature" width={650} height={700}/>
+					</div>
 					<div className={styles.mobilepaddingtop50}>
 						<Typography color="white" variant="h6"
 							fontSize={{
@@ -183,7 +178,7 @@ export default function Home() {
 							SYSTEM <br />REQUIREMENTS
 						</Typography>
 						<br />
-						<Image src={imgsystemrequirement} alt="System Requirement"/>
+						<Image src="/images/650x700.png" alt="System Requirement" width={650} height={700}/>
 					</div>
 				</div>
 			</Container>
@@ -232,7 +227,7 @@ export default function Home() {
 						<div className={[styles.card, styles.card1].join(" ")}>
 							<div className={styles.cardbody}>
 								<div className={styles.cardcol1}>
-									<Image className={styles.sectionpersonimg} src={imgtestimonial1} alt="Testimonial 1"/>
+									<Image className={styles.sectionpersonimg} src="/images/Evan-Lahti.jpg" alt="Testimonial 1" width={67} height={66}/>
 								</div>
 								<div className={styles.cardcol2}>
 									<Typography color="orange" 
@@ -259,7 +254,7 @@ export default function Home() {
 								<div className={styles.cardcol3}>
 								<Link href="https://twitter.com/">
 									<a style={{ textDecoration: 'none' }} target="_blank">
-										<Image src={imgtwitter} alt="Twitter"/>
+										<Image src="/images/twitter.svg" alt="Twitter" width={19} height={15}/>
 									</a>
 								</Link>
 								</div>
@@ -289,7 +284,7 @@ export default function Home() {
 						<div className={[styles.card, styles.card2].join(" ")}>
 							<div className={styles.cardbody}>
 								<div className={styles.cardcol1}>
-									<Image className={styles.sectionpersonimg} src={imgtestimonial2} alt="Testimonial 2"/>
+									<Image className={styles.sectionpersonimg} src="/images/Jada-Griffin.jpg" alt="Testimonial 2" width={67} height={66}/>
 								</div>
 								<div className={styles.cardcol2}>
 									<Typography color="orange" 
@@ -316,7 +311,7 @@ export default function Home() {
 								<div className={styles.cardcol3}>
 								<Link href="https://twitter.com/">
 									<a style={{ textDecoration: 'none' }} target="_blank">
-										<Image src={imgtwitter} alt="Twitter"/>
+										<Image src="/images/twitter.svg" alt="Twitter" width={19} height={15}/>
 									</a>
 								</Link>
 								</div>
@@ -346,7 +341,7 @@ export default function Home() {
 						<div className={[styles.card, styles.card3].join(" ")}>
 							<div className={styles.cardbody}>
 								<div className={styles.cardcol1}>
-									<Image className={styles.sectionpersonimg} src={imgtestimonial3} alt="Testimonial 3"/>
+									<Image className={styles.sectionpersonimg} src="/images/Aaron-Williams.jpg" alt="Testimonial 3" width={67} height={66}/>
 								</div>
 								<div className={styles.cardcol2}>
 									<Typography color="orange" 
@@ -373,7 +368,7 @@ export default function Home() {
 								<div className={styles.cardcol3}>
 								<Link href="https://twitter.com/">
 									<a style={{ textDecoration: 'none' }} target="_blank">
-										<Image src={imgtwitter} alt="Twitter"/>
+										<Image src="/images/twitter.svg" alt="Twitter" width={19} height={15}/>
 									</a>
 								</Link>
 								</div>
@@ -408,7 +403,9 @@ export default function Home() {
 		<div className={styles.sectionnewsletter}>
 			<Container maxWidth="xl">
 				<div className={styles.mobilefull} style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20 }}>
-					<div style={{ textAlign: "center" }}><Image src={imgnewsletter} alt="Newsletter"/></div>
+					<div style={{ textAlign: "center" }}>
+						<Image src="/images/newsletter.jpg" alt="Newsletter" width={405} height={471}/>
+					</div>
 					<div>
 						<Typography color="white" variant="h6"
 							paddingTop={10}

@@ -5,14 +5,14 @@ import { useDispatch } from "react-redux"
 import { incrementCounterAction } from '../../redux/actions/counters'
 import Link from 'next/link';
 
-export const ButtonNavbar = () =>{
+export let ButtonNavbar = () =>{
 	
-	const dispatch = useDispatch()
-    const counters = useSelector(state => state.counters);
+	let dispatch = useDispatch()
+    let counters = useSelector(state => state.counters);
 
-    const navbarReducer = useSelector(store => store.navbar);
+    let navbarReducer = useSelector(store => store.navbar);
 
-    console.log(navbarReducer);
+    //console.log(navbarReducer);
 
 	/* testing redux add score
     const handleChange = (e) => {
@@ -23,14 +23,14 @@ export const ButtonNavbar = () =>{
     }
 	*/
 	
-    const onLogoutClick = (e) => {
+    let onLogoutClick = (e) => {
         e.preventDefault();
         window.localStorage.clear();
         alert("Anda telah logout");
         window.location = "/login/";
     }
 	
-	const isUserLogin = ""
+	let isUserLogin = ""
 	var name = ""
 	
 	if (typeof window !== 'undefined') {
@@ -38,7 +38,7 @@ export const ButtonNavbar = () =>{
     // isUserLogin = localStorage.getItem('status');
 		name = localStorage.getItem('name');
 	}
-    console.log(isUserLogin)
+    //console.log(isUserLogin)
     return (
         <>
             {
