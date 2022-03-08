@@ -6,7 +6,8 @@
       "build": "next build",
       "start": "next start",
       "lint": "next lint",
-      "test": "jest"
+      "test": "jest",
+      "test:coverage": "jest --coverage"
    },
    "dependencies": {
       "@emotion/react": "^11.7.1",
@@ -23,11 +24,13 @@
       "react": "17.0.2",
       "react-dom": "17.0.2",
       "react-hook-form": "^7.26.1",
+      "react-player": "^2.9.0",
       "react-redux": "^7.2.6",
       "react-router-dom": "^6.2.1",
       "redux": "^4.1.2",
       "redux-thunk": "^2.4.1",
-      "styled-components": "^5.3.3"
+      "styled-components": "^5.3.3",
+      "video-react": "^0.15.0"
    },
    "devDependencies": {
       "@testing-library/jest-dom": "^5.16.2",
