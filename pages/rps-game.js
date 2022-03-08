@@ -2,11 +2,6 @@
 import React from 'react';
 
 // Component Game
-import { Gamecontainer } from '../components/RPSGame/template/game-container/Gamecontainer.component';
-import { Gamesection } from '../components/RPSGame/template/game-section/Gamesection.component';
-import { Resultsection } from '../components/RPSGame/template/resultsection/Resultsection.component';
-import { Info } from '../components/RPSGame/template/info/Info.component';
-import { Score } from '../components/RPSGame/score/Score.component';
 import { settings } from '../components/RPSGame/config/game';
 import { Message } from '../components/RPSGame/message/Message.component';
 import { Choice, Selection, ChoiceComputer, SelectionComputer } from '../components/RPSGame/choice/Choice.component';
@@ -17,7 +12,7 @@ import Image from 'next/image';
 
 // Component Navbar
 import ResponsiveAppBar from '../components/navbar/Navbar.component';
-import { Container, Typography, Alert, Grid } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
 import imgbatu from '../public/images/batu.png';
 import imgkertas from '../public/images/kertas.png';
@@ -157,46 +152,33 @@ const RPSGame = () => {
 							Rock Paper Scissors
 						</Typography>
 						<Round data={rpsGame}/>
-						<Grid container direction="row" justifyContent="center">
-							{statusGame.rpsStatusgame != "" ? (
-									<Alert severity="success">
-										{statusGame.rpsStatusgame}
-									</Alert>
-								) :
-								(
-									<Alert severity="info">
-										Game belum pernah dimainkan!
-									</Alert>
-								)
-							}
-						</Grid>	
-						<Gamecontainer>
-							<Gamesection>
-								<Info>
-									<p className="headertitle">PLAYER 1 (<Score score={userscore} />)</p>
-								</Info>
+						<div className="game-container"> 
+							<div className="game-section">
+								<div className="info">
+									<p className="headertitle">PLAYER 1 (<span id="playerScore">{userscore}</span>)</p>
+								</div>
 								<br/>
 								<Selection data={rpsGame} trophyIcon={trophy}>
 									<Choice data={rpsGame} value="Rock" id="rock" className="fas fa-hand-rock" onClick={play} choiceIcon={imgbatu} />
 									<Choice data={rpsGame} value="Paper" id="paper" className="fas fa-hand-paper" onClick={play} choiceIcon={imgkertas} />
 									<Choice data={rpsGame} value="Scissors" id="scissors" className="fas fa-hand-scissors" onClick={play} choiceIcon={imggunting} />
 								</Selection>
-							</Gamesection>
+							</div>
 
-							<Resultsection>
+							<div className="resultsection">
 								<Message data={rpsGame} />
-							</Resultsection>
+							</div>
 
-							<Gamesection>
-								<Info>
-									<p className="headertitle">COM (<Score score={pcscore} />)</p>
-								</Info>
+							<div className="game-section">
+								<div className="info">
+									<p className="headertitle">COM (<span id="playerScore">{pcscore}</span>)</p>
+								</div>
 								<br/>
 								<SelectionComputer data={rpsGame} trophyIcon={trophy}>
 									<ChoiceComputer data={rpsGame} id="comrock" className="fas fa-hand-rock" activeimg="activeimg" imgbatu={imgbatu} imgkertas={imgkertas} imggunting={imggunting}/>
 								</SelectionComputer>
-							</Gamesection>
-						</Gamecontainer>
+							</div>
+						</div>
 						<div className="divrefresh">
                             <Image 
                                 src={imgrefresh}
@@ -207,7 +189,6 @@ const RPSGame = () => {
                                 onClick={reset}
                             />
 						</div>
-			
 					</div>
 				</Container>
 			</div>
