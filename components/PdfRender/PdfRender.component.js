@@ -65,7 +65,7 @@ function pdfText() {
 					<Text style={styles.sectiontitle}>3. Play Game</Text>
 					<Text>This is the page for Rock Paper Scissors game</Text>
 					<Image style={styles.img450} src="/images/pdf6.jpg" alt="Rock Paper Scissors Game"/>
-					<Text>Pick either one option and then the computer will pick it's option, in this case, you picked Rock and computer picked Paper, so you lost.</Text>
+					<Text>Pick either one option and then the computer will pick it s option, in this case, you picked Rock and computer picked Paper, so you lost.</Text>
 					<Image style={styles.img450} src="/images/pdf7.jpg" alt="Game Result"/>
 					<Text>Continue playing the game and have fun!</Text>
 				</View>
