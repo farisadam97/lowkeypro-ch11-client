@@ -27,4 +27,8 @@ describe('LandingPage', () => {
     expect(screen.getByAltText('Newsletter')).toBeInTheDocument();
 	
   });
+
+  it('Render landing page', () => {
+    render(<Provider store={store}><LandingPage /></Provider>);
+  })
 });
