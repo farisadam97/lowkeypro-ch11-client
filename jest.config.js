@@ -1,4 +1,5 @@
 module.exports = {
+  collectCoverage: true,
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
@@ -22,11 +23,27 @@ module.exports = {
 	".+\\.(css|scss|png|jpeg|jpg|svg)$": "jest-transform-stub",
   },
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  coveragePathIgnorePatterns: 
+    [
+      '<rootDir>/node_modules/', 
+      '<rootDir>/.next/', 
+      '<rootDir>/__mock__/', 
+      '<rootDir>/__test__/', 
+      '<rootDir>/services/', 
+      '<rootDir>/coverage/', 
+      '<rootDir>/pages/api/', 
+      '<rootDir>/redux/', 
+      '<rootDir>/jest.config.js', 
+      '<rootDir>/next.config.js',
+      '<rootDir>/pages/_app.js',
+      '<rootDir>/pages/_document.js'
+    ],
   testEnvironment: 'jsdom',
   transform: {
     /* Use babel-jest to transpile tests with the next/babel preset
     https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object */
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    ".+\\.(css|styl|less|sass|scss|png|jpg|jpeg||ttf|woff|woff2)$": "jest-transform-stub"
   },
   transformIgnorePatterns: [
     '/node_modules/',
