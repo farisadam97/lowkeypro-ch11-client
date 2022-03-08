@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import { Provider } from 'react-redux'
 import { store } from '../redux'
 import '../styles/RPSGame.css'
+import '../node_modules/video-react/dist/video-react.css'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {

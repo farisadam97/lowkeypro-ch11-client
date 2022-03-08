@@ -10,19 +10,24 @@ import { useForm, Controller } from "react-hook-form";
 import { Input } from "@material-ui/core";
 // import { useEffect } from "react";
 
-var uname   = localStorage.getItem('name')
-var uemail  = localStorage.getItem('email')
-var ubio    = localStorage.getItem('bio')
-var ucity   = localStorage.getItem('city')
-var uid     = localStorage.getItem('id')
+let uname   = "";
+let uemail  = "";
+let ubio    = "";
+let ucity   = "";
+if (typeof window !== 'undefined') {
+  uname   = localStorage.getItem('name')
+  uemail  = localStorage.getItem('email')
+  ubio    = localStorage.getItem('bio')
+  ucity   = localStorage.getItem('city')
+}
 
 export default function FormProfile(){
     const { handleSubmit, formState: { errors }, control } = useForm({
         defaultValues: {
-          name: uname,
-          email: uemail,
-          bio: ubio,
-          city: ucity,
+          name: uname || "",
+          email: uemail || "",
+          bio: ubio || "",
+          city: ucity || "",
         }
       });
 

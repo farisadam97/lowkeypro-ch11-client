@@ -2,27 +2,14 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-import { incrementCounterAction } from '../../redux/actions/counters'
 import Link from 'next/link';
 
 export let ButtonNavbar = () =>{
 	
-	let dispatch = useDispatch()
     let counters = useSelector(state => state.counters);
 
     let navbarReducer = useSelector(store => store.navbar);
 
-    //console.log(navbarReducer);
-
-	/* testing redux add score
-    const handleChange = (e) => {
-		dispatch(
-			incrementCounterAction()
-		)
-		localStorage.setItem('total_score', counters.value+1)
-    }
-	*/
-	
     let onLogoutClick = (e) => {
         e.preventDefault();
         window.localStorage.clear();
