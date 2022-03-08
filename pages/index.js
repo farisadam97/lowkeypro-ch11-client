@@ -1,11 +1,12 @@
 import Container from '@mui/material/Container';
 import Navbar from '../components/navbar/Navbar.component';
-import Head from 'next/head';
+// import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import VideoPlayer from "../components/MediaVideo/Video.component";
 
 export default function Home() {
 	
@@ -32,6 +33,7 @@ export default function Home() {
 				>
 					LOWKEY GAME
 				</Typography>
+				<VideoPlayer src="https://media.w3.org/2010/05/sintel/trailer.mp4"/>
 				<Typography textAlign="center" color="white" variant="h4"
 					paddingTop={{
 						lg: 0,
