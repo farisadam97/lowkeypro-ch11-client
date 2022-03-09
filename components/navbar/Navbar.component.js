@@ -14,18 +14,17 @@ import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import {ButtonNavbar} from './Button.component';
 import ImageListItem from '@mui/material/ImageListItem';
-// /images/logo/lowkeypro-text-kanan.png
-import logoItem from '../../public/images/logo/lowkeypro-logo-tanpa-text.png';
-import logoTextKanan from '../../public/images/logo/lowkeypro-text-kanan.png';
+
 import Link from 'next/link';
 
 import Image from 'next/image';
 import { height } from '@mui/system';
 
 const pages = [
-  {name: "Home", route: "/"}, 
-  {name: "Game List", route: "/game-list"}, 
-  {name: "Top Score", route: "/top-score"},
+  {name: "Home", route: "/", target: "_self"}, 
+  {name: "Game List", route: "/game-list", target: "_self"}, 
+  {name: "Top Score", route: "/top-score", target: "_self"}, 
+  {name: "How to Play?", route: "/how-to-play", target: "_blank"},
 ];
 
 const ResponsiveAppBar = () => {
@@ -56,7 +55,7 @@ const ResponsiveAppBar = () => {
           <Link href="/">
 			      <a>
               <Image
-              src={logoItem} alt="" 
+              src="/images/logo/lowkeypro-logo-tanpa-text.png" alt="logo in phone"
               width="30" 
               height="56"
               />
@@ -99,7 +98,7 @@ const ResponsiveAppBar = () => {
                   // style={{  color: 'black' }}
                   >
 
-                    <a href={page.route}
+                    <a href={page.route} target={page.target}
                     style={{  textDecoration: 'none', color: 'black' }}
                     >
                       {page.name}
@@ -118,7 +117,8 @@ const ResponsiveAppBar = () => {
           sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
              <Image
-              src={logoTextKanan} alt="" 
+              alt="logo in website"
+              src="/images/logo/lowkeypro-text-kanan.png" 
               width="110" 
               height="76"
             />
@@ -131,7 +131,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
-                <a href={page.route}
+                <a href={page.route} target={page.target}
                     style={{  textDecoration: 'none', color: 'black' }}
                 >
                 {page.name}
