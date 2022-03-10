@@ -4,5 +4,9 @@ module.exports = {
   images: {
     loader: 'akamai',
     path: '',
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  webpack5: false,
 }
