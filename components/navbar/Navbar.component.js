@@ -14,7 +14,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import {ButtonNavbar} from './Button.component';
 import ImageListItem from '@mui/material/ImageListItem';
-// /images/logo/lowkeypro-text-kanan.png
 
 import Link from 'next/link';
 
@@ -56,7 +55,7 @@ const ResponsiveAppBar = () => {
           <Link href="/">
 			      <a>
               <Image
-              src="/images/logo/lowkeypro-logo-tanpa-text.png" alt="" 
+              src="/images/logo/lowkeypro-logo-tanpa-text.png" alt="logo in phone"
               width="30" 
               height="56"
               />
@@ -118,7 +117,8 @@ const ResponsiveAppBar = () => {
           sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
              <Image
-              src="/images/logo/lowkeypro-text-kanan.png" alt="" 
+              alt="logo in website"
+              src="/images/logo/lowkeypro-text-kanan.png" 
               width="110" 
               height="76"
             />

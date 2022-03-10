@@ -1,9 +1,13 @@
-import '../styles/globals.css'
+import React from 'react';
+import '../styles/globals.css';
 // import '../styles/Gamecontainer.css'
-import { Provider } from 'react-redux'
-import { store } from '../redux'
-import '../styles/RPSGame.css'
-import Head from 'next/head'
+import Head from 'next/head';
+import { Provider } from 'react-redux';
+import { store } from '../redux';
+import '../styles/RPSGame.css';
+/* eslint-disable */
+import '../node_modules/video-react/dist/video-react.css';
+/* eslint-enable */
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -21,15 +25,15 @@ function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png" />
-        <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/manifest.json" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff"></meta>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -39,8 +43,8 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Provider>
     </>
-  
-  )
+
+  );
 }
 
-export default MyApp
+export default MyApp;

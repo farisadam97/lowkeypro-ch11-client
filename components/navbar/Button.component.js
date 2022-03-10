@@ -2,27 +2,14 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-import { incrementCounterAction } from '../../redux/actions/counters'
 import Link from 'next/link';
 
 export let ButtonNavbar = () =>{
 	
-	let dispatch = useDispatch()
     let counters = useSelector(state => state.counters);
 
     let navbarReducer = useSelector(store => store.navbar);
 
-    //console.log(navbarReducer);
-
-	/* testing redux add score
-    const handleChange = (e) => {
-		dispatch(
-			incrementCounterAction()
-		)
-		localStorage.setItem('total_score', counters.value+1)
-    }
-	*/
-	
     let onLogoutClick = (e) => {
         e.preventDefault();
         window.localStorage.clear();
@@ -49,7 +36,9 @@ export let ButtonNavbar = () =>{
                       <a onClick={handleChange}>Testing redux add score</a>
                     */}
 
-                <a href="/profile" style={{ fontFamily: 'Roboto,Helvetica,Arial,sans-serif', fontSize: '0.875rem', lineHeight: '1.75', textTransform: 'uppercase', textDecoration: 'none', padding: '4px 15px' }}><span style={{ padding: '2px 6px'}}>{name}</span> <span style={{ backgroundColor: '#55daab', color: 'white', borderRadius: '3px', padding: '2px 6px'}}>Score: {counters.value}</span></a> 
+                <Link href="/profile" style={{ textDecoration: 'none', color: 'black'}}>
+                  <a style={{ fontFamily: 'Roboto,Helvetica,Arial,sans-serif', fontSize: '0.875rem', lineHeight: '1.75', textTransform: 'uppercase', textDecoration: 'none', padding: '4px 15px' }}><span style={{ padding: '2px 6px'}}>{name}</span> <span style={{ backgroundColor: '#55daab', color: 'white', borderRadius: '3px', padding: '2px 6px'}}>Score: {counters.value}</span></a> 
+                </Link>
 
                 <Button variant="outlined" style={{ borderRadius: "90px" }}>
                   <Link href="/home-page" style={{ textDecoration: 'none', color: 'black'}}>

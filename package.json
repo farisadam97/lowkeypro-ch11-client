@@ -5,8 +5,9 @@
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
-      "lint": "next lint",
-      "test": "jest"
+      "lint": "eslint pages/_app.jsx pages/index.jsx pages/home-page/index.jsx pages/game-list.jsx pages/rps-game.jsx pages/top-score/index.jsx pages/game-history/index.jsx pages/how-to-play/index.jsx pages/login/index.jsx pages/profile/index.jsx pages/register/index.jsx",
+      "test": "jest",
+      "test:coverage": "jest --coverage"
    },
    "dependencies": {
       "@emotion/react": "^11.7.1",
@@ -23,18 +24,26 @@
       "react": "17.0.2",
       "react-dom": "17.0.2",
       "react-hook-form": "^7.26.1",
+      "react-player": "^2.9.0",
       "react-redux": "^7.2.6",
       "react-router-dom": "^6.2.1",
       "redux": "^4.1.2",
       "redux-thunk": "^2.4.1",
-      "styled-components": "^5.3.3"
+      "styled-components": "^5.3.3",
+      "video-react": "^0.15.0"
    },
    "devDependencies": {
       "@testing-library/jest-dom": "^5.16.2",
       "@testing-library/react": "^12.1.3",
+      "babel-eslint": "^10.1.0",
       "babel-jest": "^27.5.1",
-      "eslint": "8.8.0",
-      "eslint-config-next": "12.0.10",
+      "eslint": "^7.32.0",
+      "eslint-config-airbnb": "^19.0.4",
+      "eslint-config-next": "12.1.0",
+      "eslint-plugin-import": "^2.25.4",
+      "eslint-plugin-jsx-a11y": "^6.5.1",
+      "eslint-plugin-react": "^7.29.2",
+      "eslint-plugin-react-hooks": "^4.3.0",
       "identity-obj-proxy": "^3.0.0",
       "jest": "^27.5.1",
       "jest-transform-stub": "^2.0.0",
