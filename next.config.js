@@ -4,5 +4,8 @@ module.exports = {
   images: {
     loader: 'akamai',
     path: '',
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 }
