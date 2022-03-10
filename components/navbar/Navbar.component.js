@@ -25,6 +25,7 @@ const pages = [
   {name: "Game List", route: "/game-list", target: "_self"}, 
   {name: "Top Score", route: "/top-score", target: "_self"}, 
   {name: "How to Play?", route: "/how-to-play", target: "_blank"},
+  {name: "Video Dinamis", route: "/video-dinamis", target: "_self"},
 ];
 
 const ResponsiveAppBar = () => {
